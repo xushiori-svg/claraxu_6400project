@@ -2,27 +2,26 @@
 title: "About Me"
 ---
 
-Write a short biography here.
+Hi! I’m Clara, a Master's student in Applied Economics and Data Science at the University of Pennsylvania. Before coming to Penn, I studied Japanese and Financial Engineering at Nanjing University and spent a semester as an exchange student at the University of Tokyo.
 
-Include:
+I’m interested in econometrics, financial economics, and data analysis. I have experience working with R, Python and SQL, and I enjoy using data to better understand real-world problems.
 
--   Educational background
--   Professional interests
--   Technical skills
--   Career goals
+In the future, I hope to build a career where I can combine my background in economics and finance with data science and quantitative analysis.
 
 ## Education
 
-Master of Applied Economics and Data Science, University of Pennsylvania (expaceted 2027) Batelor of Science, University Name 2026
+Master of Applied Economics and Data Science, University of Pennsylvania (expected 2027)
+B.A. in Japanese; Minor in Financial Engineering, Nanjing University 2026
+Exchange Student, The University of Tokyo 2024
 
 ## Interests
 
 -   Econometrics
--   Machine Learning
 -   Data Analysis
+-   Financial Economics
 
 ## Contact
 
-## student\@email.edu
+## jiayinxu\@sas.upenn.edu
 
 ------------------------------------------------------------------------
