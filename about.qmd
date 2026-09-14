@@ -2,8 +2,22 @@
 title: "About"
 ---
 
-About this site
+## Welcome
 
-```{r}
-1 + 1
-```
+This website is a personal space where I share my background, my work, and a blog exploring ideas in mathematics, statistics, econometrics, and economics.
+
+## Why This Site Exists
+
+I'm Clara Xu, a Master's student in the MAEDS program at the University of Pennsylvania. This site began as a project for one of my courses, but I've kept building on it as a home for:
+
+- **A blog** of short, accessible explainers on concepts that tend to confuse even people who've studied them formally.
+- **My bio and background**, including my academic path and professional experience.
+- **My resume**, for anyone interested in my work history and skills.
+
+## How This Site Is Built
+
+This site is built entirely in [Quarto](https://quarto.org/), using `.qmd` files that mix Markdown text with R code where needed, and is published via [GitHub Pages](https://pages.github.com/). The full source is available on [GitHub](https://github.com/xushiori-svg/claraxu_6400project).
+
+## Get in Touch
+
+Feel free to explore the blog, check out my [resume](resume.qmd), or read more about my [background](bio.qmd). If you'd like to connect, you can find my contact details on the home page.
