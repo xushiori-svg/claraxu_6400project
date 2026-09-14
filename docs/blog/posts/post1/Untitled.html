@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-16">
+<meta name="dcterms.date" content="2026-09-14">
 
-<title>My First Blog Post – Student Name</title>
+<title>Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series – Clara Xu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +109,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Student Name</span>
+    <span class="navbar-title">Clara Xu</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -151,7 +151,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My First Blog Post</h1>
+<h1 class="title">Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series</h1>
   <div class="quarto-categories">
     <div class="quarto-category">personal</div>
     <div class="quarto-category">data-science</div>
@@ -166,7 +166,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 16, 2026</p>
+      <p class="date">September 14, 2026</p>
     </div>
   </div>
   
@@ -178,11 +178,61 @@ window.Quarto = {
 </header>
 
 
-<p><img src="figure1.png" class="img-fluid" width="500"></p>
-<p>This is my first blog post. Example <span class="math inline">\(\LaTeX\)</span> equation: <span class="math inline">\(\frac{1}{2}\sum_{i=1}^nx_i\)</span></p>
+<p>Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as <span class="math inline">\(\log(1+g) \approx g\)</span> as <span class="math inline">\(g \to 0\)</span>, which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.</p>
+<p><img src="Taylor p1.png" class="img-fluid" width="500"></p>
+<p>However, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!</p>
+<section id="starting-with-a-tangent-line-the-first-order-term" class="level2">
+<h2 class="anchored" data-anchor-id="starting-with-a-tangent-line-the-first-order-term">Starting with a tangent line: The First-Order Term</h2>
+<p>Suppose you want to approximate a curved function <span class="math inline">\(f(x)\)</span> at some point <span class="math inline">\(x=a\)</span>. The simplest thing you can do is to draw a tangent line near that point.</p>
+<p><span class="math display">\[
+f(x)\approx f(a)+f'(a)(x-a)
+\]</span></p>
+<p>This says that starting at the function’s actual height of <span class="math inline">\(f(a)\)</span>, then leave the point <span class="math inline">\(a\)</span> at a slope given by <span class="math inline">\(f'(a)\)</span>. This is a first-order approximation. It matches the function’s value and its slope at <span class="math inline">\(a\)</span>, but nothing else. Close to <span class="math inline">\(a\)</span>, it’s a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.</p>
+<p>So, can we do better? What if, instead of matching just the value and the slope, we also matched the <em>curvature</em>?</p>
+</section>
+<section id="adding-curvature-the-second-order-term" class="level2">
+<h2 class="anchored" data-anchor-id="adding-curvature-the-second-order-term">Adding Curvature: The Second-Order Term</h2>
+<p>A function’s second derivative <span class="math inline">\(f''(a)\)</span>, measures how quickly a slope is changing. If we add a term that captures this bending, we get:</p>
+<p><span class="math display">\[
+f(x)\approx f(a)+f'(a)(x-a)+\frac{f''(a)}{2} (x-a)^2
+\]</span></p>
+<p>Now we have more than a straight line. We have a parabola that matches the function’s height, slope, and curvature at <span class="math inline">\(a\)</span>. This hugs the true curve much more closely, for a wider range of <span class="math inline">\(x\)</span> near <span class="math inline">\(a\)</span>.</p>
+</section>
+<section id="the-full-series" class="level2">
+<h2 class="anchored" data-anchor-id="the-full-series">The Full Series</h2>
+<p>This process doesn’t have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near <span class="math inline">\(a\)</span>. Each of them contributes to a better approximation.</p>
+<p><span class="math display">\[
+f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+\]</span> And this is the Taylor series.</p>
+</section>
+<section id="a-example-in-macroeconomic-application-ln1g" class="level2">
+<h2 class="anchored" data-anchor-id="a-example-in-macroeconomic-application-ln1g">A Example in Macroeconomic Application: ln(1+g)</h2>
+<p>The function <span class="math inline">\(\ln(1+x)\)</span> has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:</p>
+<p><span class="math display">\[
+\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots
+\]</span></p>
+<p>Evaluated at <span class="math inline">\(x = 0.1\)</span>,</p>
+<p><span class="math display">\[
+0.1 - \frac{0.1^2}{2} + \frac{0.1^3}{3} - \frac{0.1^4}{4} \approx 0.09531,
+\]</span></p>
+<p>already very close to the true value <span class="math inline">\(\ln(1.1) \approx 0.09531\)</span>. The reason the approximation <span class="math inline">\(\ln(1+g) \approx g\)</span> works so well for small <span class="math inline">\(g\)</span> is that, the first-order term is simply <span class="math inline">\(g\)</span>, while the remaining terms become progressively smaller as <span class="math inline">\(g \to 0\)</span>.</p>
+<p>This shows up constantly in macroeconomics. If an economic variable grows from <span class="math inline">\(Y_t\)</span> to <span class="math inline">\(Y_{t+1}\)</span>, we often define the growth rate as <span class="math inline">\(g = \frac{Y_{t+1}-Y_t}{Y_t}\)</span>, so that</p>
+<p><span class="math display">\[
+\frac{Y_{t+1}}{Y_t} = 1+g.
+\]</span></p>
+<p>The continuously compounded growth rate, or log growth rate, is therefore</p>
+<p><span class="math display">\[
+\ln\left(\frac{Y_{t+1}}{Y_t}\right) = \ln(1+g).
+\]</span></p>
+<p>And when <span class="math inline">\(g\)</span> is small,</p>
+<p><span class="math display">\[
+\ln(1+g) \approx g.
+\]</span></p>
+<p>So when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm.</p>
 <hr>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -267,6 +317,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -377,6 +429,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -606,10 +659,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../../../images/UniversityofPennsylvania_FullLogo_RGB.png" class="img-fluid" width="100"></p>
+<p><img src="../../..\images/UniversityofPennsylvania_FullLogo_RGB.png" class="img-fluid" width="100"></p>
 </div>   
     <div class="nav-footer-center">
-<p>© 2026 Student Name</p>
+<p>© 2026 Clara Xu</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

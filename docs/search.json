@@ -18,7 +18,7 @@
     "href": "bio.html#education",
     "title": "About Me",
     "section": "Education",
-    "text": "Education\nMaster of Applied Economics and Data Science, University of Pennsylvania (expected 2027) B.A. in Japanese; Minor in Financial Engineering, Nanjing University 2026 Exchange Student, The University of Tokyo 2024"
+    "text": "Education\n\nMaster of Applied Economics and Data Science, University of Pennsylvania (expected 2027)\nB.A. in Japanese; Minor in Financial Engineering, Nanjing University 2026\nExchange Student, The University of Tokyo 2024"
   },
   {
     "objectID": "bio.html#interests",
@@ -46,14 +46,14 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "My First Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series\n\n\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
     "href": "blog/posts/post1/Untitled.html",
-    "title": "My First Blog Post",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
     "section": "",
-    "text": "This is my first blog post. Example \\(\\LaTeX\\) equation: \\(\\frac{1}{2}\\sum_{i=1}^nx_i\\)"
+    "text": "Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as \\(\\log(1+g) \\approx g\\) as \\(g \\to 0\\), which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.\nHowever, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!"
   },
   {
     "objectID": "resume.html",
@@ -74,7 +74,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This website is a personal space where I share my background, my work, and a blog exploring ideas in mathematics, statistics, econometrics, and economics."
   },
   {
     "objectID": "bio.html#jiayinxusas.upenn.edu",
@@ -82,5 +82,61 @@
     "title": "About Me",
     "section": "jiayinxu@sas.upenn.edu",
     "text": "jiayinxu@sas.upenn.edu"
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#starting-with-a-tangent-line-the-first-order-term",
+    "href": "blog/posts/post1/Untitled.html#starting-with-a-tangent-line-the-first-order-term",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Starting with a tangent line: The First-Order Term",
+    "text": "Starting with a tangent line: The First-Order Term\nSuppose you want to approximate a curved function \\(f(x)\\) at some point \\(x=a\\). The simplest thing you can do is to draw a tangent line near that point.\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)\n\\]\nThis says that starting at the function’s actual height of \\(f(a)\\), then leave the point \\(a\\) at a slope given by \\(f'(a)\\). This is a first-order approximation. It matches the function’s value and its slope at \\(a\\), but nothing else. Close to \\(a\\), it’s a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.\nSo, can we do better? What if, instead of matching just the value and the slope, we also matched the curvature?"
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#adding-curvature-the-second-order-term",
+    "href": "blog/posts/post1/Untitled.html#adding-curvature-the-second-order-term",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Adding Curvature: The Second-Order Term",
+    "text": "Adding Curvature: The Second-Order Term\nA function’s second derivative \\(f''(a)\\), measures how quickly a slope is changing. If we add a term that captures this bending, we get:\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)+\\frac{f''(a)}{2} (x-a)^2\n\\]\nNow we have more than a straight line. We have a parabola that matches the function’s height, slope, and curvature at \\(a\\). This hugs the true curve much more closely, for a wider range of \\(x\\) near \\(a\\)."
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#the-full-series",
+    "href": "blog/posts/post1/Untitled.html#the-full-series",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "The Full Series",
+    "text": "The Full Series\nThis process doesn’t have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near \\(a\\). Each of them contributes to a better approximation.\n\\[\nf(x) = \\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n\n\\] And this is the Taylor series."
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#a-example-in-macroeconomic-application-ln1g",
+    "href": "blog/posts/post1/Untitled.html#a-example-in-macroeconomic-application-ln1g",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "A Example in Macroeconomic Application: ln(1+g)",
+    "text": "A Example in Macroeconomic Application: ln(1+g)\nThe function \\(\\ln(1+x)\\) has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:\n\\[\n\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots\n\\]\nEvaluated at \\(x = 0.1\\),\n\\[\n0.1 - \\frac{0.1^2}{2} + \\frac{0.1^3}{3} - \\frac{0.1^4}{4} \\approx 0.09531,\n\\]\nalready very close to the true value \\(\\ln(1.1) \\approx 0.09531\\). The reason the approximation \\(\\ln(1+g) \\approx g\\) works so well for small \\(g\\) is that, the first-order term is simply \\(g\\), while the remaining terms become progressively smaller as \\(g \\to 0\\).\nThis shows up constantly in macroeconomics. If an economic variable grows from \\(Y_t\\) to \\(Y_{t+1}\\), we often define the growth rate as \\(g = \\frac{Y_{t+1}-Y_t}{Y_t}\\), so that\n\\[\n\\frac{Y_{t+1}}{Y_t} = 1+g.\n\\]\nThe continuously compounded growth rate, or log growth rate, is therefore\n\\[\n\\ln\\left(\\frac{Y_{t+1}}{Y_t}\\right) = \\ln(1+g).\n\\]\nAnd when \\(g\\) is small,\n\\[\n\\ln(1+g) \\approx g.\n\\]\nSo when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm."
+  },
+  {
+    "objectID": "about.html#welcome",
+    "href": "about.html#welcome",
+    "title": "About",
+    "section": "",
+    "text": "This website is a personal space where I share my background, my work, and a blog exploring ideas in mathematics, statistics, econometrics, and economics."
+  },
+  {
+    "objectID": "about.html#why-this-site-exists",
+    "href": "about.html#why-this-site-exists",
+    "title": "About",
+    "section": "Why This Site Exists",
+    "text": "Why This Site Exists\nI’m Clara Xu, a Master’s student in the MAEDS program at the University of Pennsylvania. This site began as a project for one of my courses, but I’ve kept building on it as a home for:\n\nA blog of short, accessible explainers on concepts that tend to confuse even people who’ve studied them formally.\nMy bio and background, including my academic path and professional experience.\nMy resume, for anyone interested in my work history and skills."
+  },
+  {
+    "objectID": "about.html#how-this-site-is-built",
+    "href": "about.html#how-this-site-is-built",
+    "title": "About",
+    "section": "How This Site Is Built",
+    "text": "How This Site Is Built\nThis site is built entirely in Quarto, using .qmd files that mix Markdown text with R code where needed, and is published via GitHub Pages. The full source is available on GitHub."
+  },
+  {
+    "objectID": "about.html#get-in-touch",
+    "href": "about.html#get-in-touch",
+    "title": "About",
+    "section": "Get in Touch",
+    "text": "Get in Touch\nFeel free to explore the blog, check out my resume, or read more about my background. If you’d like to connect, you can find my contact details on the home page."
   }
 ]
