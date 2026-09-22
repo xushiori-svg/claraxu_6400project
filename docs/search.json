@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series\n\n\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nWhy a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series\n\n\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -173,5 +173,54 @@
     "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
     "section": "A Example in Macroeconomic Application: ln(1+g)",
     "text": "A Example in Macroeconomic Application: ln(1+g)\nThe function \\(\\ln(1+x)\\) has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:\n\\[\n\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots\n\\]\nEvaluated at \\(x = 0.1\\),\n\\[\n0.1 - \\frac{0.1^2}{2} + \\frac{0.1^3}{3} - \\frac{0.1^4}{4} \\approx 0.09531,\n\\]\nalready very close to the true value \\(\\ln(1.1) \\approx 0.09531\\). The reason the approximation \\(\\ln(1+g) \\approx g\\) works so well for small \\(g\\) is that, the first-order term is simply \\(g\\), while the remaining terms become progressively smaller as \\(g \\to 0\\).\nThis shows up constantly in macroeconomics. If an economic variable grows from \\(Y_t\\) to \\(Y_{t+1}\\), we often define the growth rate as \\(g = \\frac{Y_{t+1}-Y_t}{Y_t}\\), so that\n\\[\n\\frac{Y_{t+1}}{Y_t} = 1+g.\n\\]\nThe continuously compounded growth rate, or log growth rate, is therefore\n\\[\n\\ln\\left(\\frac{Y_{t+1}}{Y_t}\\right) = \\ln(1+g).\n\\]\nAnd when \\(g\\) is small,\n\\[\n\\ln(1+g) \\approx g.\n\\]\nSo when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm."
+  },
+  {
+    "objectID": "blog/posts/post2/post.html",
+    "href": "blog/posts/post2/post.html",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "",
+    "text": "“Fastest-growing occupation” sounds like a good bet for a career or a major. But growth rate is a relative number – it tells you how fast an occupation is expanding, not how many people it will actually hire. What determines whether you can get a job is the number of annual openings, and a large share of those openings has nothing to do with growth at all: they come from replacing workers who retire, switch fields, or leave the workforce.\nSo across every occupation the U.S. Bureau of Labor Statistics tracks, how well does growth rate line up with annual openings? And if they disagree, which one should someone actually use when picking a field to train for?"
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#the-question",
+    "href": "blog/posts/post2/post.html#the-question",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "",
+    "text": "“Fastest-growing occupation” sounds like a good bet for a career or a major. But growth rate is a relative number – it tells you how fast an occupation is expanding, not how many people it will actually hire. What determines whether you can get a job is the number of annual openings, and a large share of those openings has nothing to do with growth at all: they come from replacing workers who retire, switch fields, or leave the workforce.\nSo across every occupation the U.S. Bureau of Labor Statistics tracks, how well does growth rate line up with annual openings? And if they disagree, which one should someone actually use when picking a field to train for?"
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#data-and-method",
+    "href": "blog/posts/post2/post.html#data-and-method",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "Data and method",
+    "text": "Data and method\nI scraped all 343 occupation profile pages from the BLS Occupational Outlook Handbook using rvest. The list of occupations came from the OOH’s own A-Z index, so nothing was hand-picked. For each occupation I pulled the median annual pay, current employment, the 2025-35 projected growth rate, the projected employment change, and the projected number of annual openings.\nThis is public government data with no login or paywall involved. Before scraping, I checked robots.txt and the BLS website policies. Two occupations (fishing workers and military careers) don’t publish a standard salary figure and were dropped; 341 occupations remain in the analysis.\nThe full scraping, cleaning, and analysis code is available here:\n 📂 View code on GitHub"
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#growth-and-openings-barely-move-together",
+    "href": "blog/posts/post2/post.html#growth-and-openings-barely-move-together",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "Growth and openings barely move together",
+    "text": "Growth and openings barely move together\nAcross the 341 occupations, the correlation between projected growth rate and projected annual openings is close to zero (Pearson -0.04, Spearman rank -0.01). Of the 20 fastest-growing occupations, only 1 also appears among the 20 occupations with the most annual openings.\n\n\n\nGrowth rate and annual openings, plotted against each other for every occupation. Point size is current employment.\n\n\nThe occupations with the highest growth rates – Solar Photovoltaic Installers (37%), Nurse Practitioners and similar roles (36%), Data Scientists (35%) – have annual openings in the thousands, not the hundreds of thousands. Meanwhile occupations like Food and Beverage Serving Workers or Retail Sales Workers, whose growth rates are unremarkable or even negative, post six-figure annual openings because they are simply enormous occupations to begin with. Growth rate describes the shape of an occupation’s trajectory; it says almost nothing about its scale."
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#most-openings-arent-from-growth-at-all",
+    "href": "blog/posts/post2/post.html#most-openings-arent-from-growth-at-all",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "Most openings aren’t from growth at all",
+    "text": "Most openings aren’t from growth at all\n\n\n\nWhere the 15 occupations with the most annual openings get those openings from.\n\n\nBreaking down the 15 occupations with the most annual openings into “new jobs from growth” versus “replacing workers who leave” makes the point directly. For most of these occupations – Retail Sales Workers, Cashiers, Secretaries and Administrative Assistants, General Office Clerks – the blue “new jobs from growth” segment is barely visible. Nearly every opening in these fields exists because someone is leaving, not because the occupation is expanding."
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#takeaway",
+    "href": "blog/posts/post2/post.html#takeaway",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "Takeaway",
+    "text": "Takeaway\nDon’t pick a field just because its growth rate is high. Check the annual openings number too — that’s how many people actually get hired each year. A fast-growing field can still be small and hard to break into. A slow-growing field can still hire a lot of people every year, just because it’s big.\nThe table below lists, for each typical entry-level education level, the occupations that pay above the U.S. median wage ($50,980) and have the highest opening rate (openings as a share of current employment).\n\n\n\n\n\n\n\n\n\n\n\n\n\nEducation\nOccupation\nMedian pay ($)\nGrowth (%)\nAnnual openings\nOpening rate (%)\n\n\n\n\nAssociate’s degree\nAgricultural and Food Science Technicians\n51160\n5\n5900\n14.6\n\n\nAssociate’s degree\nEnvironmental Science and Protection Technicians\n55090\n7\n5300\n14.6\n\n\nAssociate’s degree\nGeological and Hydrologic Technicians\n57150\n2\n1400\n13.6\n\n\nAssociate’s degree\nNuclear Technicians\n110240\n1\n900\n13.4\n\n\nAssociate’s degree\nChemical Technicians\n60390\n5\n7600\n12.7\n\n\nBachelor’s degree\nForensic Science Technicians\n72060\n13\n2800\n13.9\n\n\nBachelor’s degree\nBiological Technicians\n57510\n7\n9400\n12.6\n\n\nBachelor’s degree\nEntertainment and Recreation Managers\n79520\n6\n5100\n11.6\n\n\nBachelor’s degree\nLogisticians\n82320\n18\n26600\n10.4\n\n\nBachelor’s degree\nHealth Education Specialists\n64070\n6\n6900\n9.8\n\n\nDoctoral or professional degree\nBiochemists and Biophysicists\n127410\n12\n2900\n8.2\n\n\nDoctoral or professional degree\nPhysicists and Astronomers\n166880\n7\n1500\n5.9\n\n\nDoctoral or professional degree\nMedical Scientists\n103410\n13\n10500\n5.8\n\n\nDoctoral or professional degree\nPhysical Therapists\n102760\n12\n13400\n4.7\n\n\nDoctoral or professional degree\nOptometrists\n136570\n10\n2000\n4.4\n\n\nHigh school diploma or equivalent\nFlight Attendants\n63580\n9\n18500\n13.8\n\n\nHigh school diploma or equivalent\nSolar Photovoltaic Installers\n53140\n37\n4200\n13.5\n\n\nHigh school diploma or equivalent\nSurveying and Mapping Technicians\n54240\n6\n6900\n11.7\n\n\nHigh school diploma or equivalent\nChefs and Head Cooks\n62470\n7\n25200\n11.4\n\n\nHigh school diploma or equivalent\nJewelers and Precious Stone and Metal Workers\n52540\n-3\n3700\n11.3\n\n\nMaster’s degree\nSubstance Abuse, Behavioral Disorder, and Mental Health Counselors\n59350\n18\n50500\n9.5\n\n\nMaster’s degree\nInstructional Coordinators\n77440\n2\n23100\n9.3\n\n\nMaster’s degree\nMarriage and Family Therapists\n66940\n14\n6900\n9.0\n\n\nMaster’s degree\nLibrarians and Library Media Specialists\n68270\n3\n12600\n8.9\n\n\nMaster’s degree\nNurse Anesthetists, Nurse Midwives, and Nurse Practitioners\n134920\n36\n32200\n8.1\n\n\nNo formal educational credential\nMusicians and Singers\n99424\n0\n17400\n10.2\n\n\nNo formal educational credential\nAthletes and Sports Competitors\n66710\n6\n2200\n9.6\n\n\nNo formal educational credential\nOil and Gas Workers\n51650\n2\n9900\n8.8\n\n\nNo formal educational credential\nRoofers\n55440\n5\n12000\n7.2\n\n\nNo formal educational credential\nFlooring Installers and Tile and Stone Setters\n54390\n4\n6400\n6.6\n\n\nPostsecondary nondegree award\nMassage Therapists\n58450\n15\n20400\n13.1\n\n\nPostsecondary nondegree award\nWind Turbine Technicians\n64120\n30\n1500\n12.7\n\n\nPostsecondary nondegree award\nHeavy and Tractor-Trailer Truck Drivers\n58640\n4\n214500\n9.7\n\n\nPostsecondary nondegree award\nHeating, Air Conditioning, and Refrigeration Mechanics and Installers\n61010\n11\n40600\n9.2\n\n\nPostsecondary nondegree award\nCourt Reporters and Simultaneous Captioners\n72420\n0\n1800\n9.0\n\n\nSome college, no degree\nActors\n60424\n0\n6300\n9.3"
+  },
+  {
+    "objectID": "blog/posts/post2/post.html#limitations",
+    "href": "blog/posts/post2/post.html#limitations",
+    "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
+    "section": "Limitations",
+    "text": "Limitations\nThese numbers are national averages. Actual demand can be very different by state or city. 36 occupations don’t have one clear education level (they’re broad groups, like “Water Transportation Occupations”). I left them out of the education table, but they’re still in the correlation numbers above."
   }
 ]
