@@ -2,6 +2,7 @@
 title: "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?"
 date: today
 categories: [web scraping, R, careers, rvest]
+image: images/title-banner.png
 ---
 
 ## The question
