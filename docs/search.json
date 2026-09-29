@@ -39,63 +39,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nWhy a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/post1/Taylor Series.html",
-    "href": "blog/posts/post1/Taylor Series.html",
-    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
-    "section": "",
-    "text": "Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as \\(\\log(1+g) \\approx g\\) as \\(g \\to 0\\), which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.\nHowever, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!"
-  },
-  {
-    "objectID": "blog/posts/post1/Taylor Series.html#starting-with-a-tangent-line-the-first-order-term",
-    "href": "blog/posts/post1/Taylor Series.html#starting-with-a-tangent-line-the-first-order-term",
-    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
-    "section": "Starting with a tangent line: The First-Order Term",
-    "text": "Starting with a tangent line: The First-Order Term\nSuppose you want to approximate a curved function \\(f(x)\\) at some point \\(x=a\\). The simplest thing you can do is to draw a tangent line near that point.\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)\n\\]\nThis says that starting at the function’s actual height of \\(f(a)\\), then leave the point \\(a\\) at a slope given by \\(f'(a)\\). This is a first-order approximation. It matches the function’s value and its slope at \\(a\\), but nothing else. Close to \\(a\\), it’s a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.\nSo, can we do better? What if, instead of matching just the value and the slope, we also matched the curvature?"
-  },
-  {
-    "objectID": "blog/posts/post1/Taylor Series.html#adding-curvature-the-second-order-term",
-    "href": "blog/posts/post1/Taylor Series.html#adding-curvature-the-second-order-term",
-    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
-    "section": "Adding Curvature: The Second-Order Term",
-    "text": "Adding Curvature: The Second-Order Term\nA function’s second derivative \\(f''(a)\\), measures how quickly a slope is changing. If we add a term that captures this bending, we get:\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)+\\frac{f''(a)}{2} (x-a)^2\n\\]\nNow we have more than a straight line. We have a parabola that matches the function’s height, slope, and curvature at \\(a\\). This hugs the true curve much more closely, for a wider range of \\(x\\) near \\(a\\)."
-  },
-  {
-    "objectID": "blog/posts/post1/Taylor Series.html#the-full-series",
-    "href": "blog/posts/post1/Taylor Series.html#the-full-series",
-    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
-    "section": "The Full Series",
-    "text": "The Full Series\nThis process doesn’t have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near \\(a\\). Each of them contributes to a better approximation.\n\\[\nf(x) = \\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n\n\\] And this is the Taylor series."
-  },
-  {
-    "objectID": "blog/posts/post1/Taylor Series.html#a-example-in-macroeconomic-application-ln1g",
-    "href": "blog/posts/post1/Taylor Series.html#a-example-in-macroeconomic-application-ln1g",
-    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
-    "section": "A Example in Macroeconomic Application: ln(1+g)",
-    "text": "A Example in Macroeconomic Application: ln(1+g)\nThe function \\(\\ln(1+x)\\) has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:\n\\[\n\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots\n\\]\nEvaluated at \\(x = 0.1\\),\n\\[\n0.1 - \\frac{0.1^2}{2} + \\frac{0.1^3}{3} - \\frac{0.1^4}{4} \\approx 0.09531,\n\\]\nalready very close to the true value \\(\\ln(1.1) \\approx 0.09531\\). The reason the approximation \\(\\ln(1+g) \\approx g\\) works so well for small \\(g\\) is that, the first-order term is simply \\(g\\), while the remaining terms become progressively smaller as \\(g \\to 0\\).\nThis shows up constantly in macroeconomics. If an economic variable grows from \\(Y_t\\) to \\(Y_{t+1}\\), we often define the growth rate as \\(g = \\frac{Y_{t+1}-Y_t}{Y_t}\\), so that\n\\[\n\\frac{Y_{t+1}}{Y_t} = 1+g.\n\\]\nThe continuously compounded growth rate, or log growth rate, is therefore\n\\[\n\\ln\\left(\\frac{Y_{t+1}}{Y_t}\\right) = \\ln(1+g).\n\\]\nAnd when \\(g\\) is small,\n\\[\n\\ln(1+g) \\approx g.\n\\]\nSo when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm."
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Download my resume here:"
-  },
-  {
-    "objectID": "resume.html#resume-pdf",
-    "href": "resume.html#resume-pdf",
-    "title": "Resume",
-    "section": "Resume PDF",
-    "text": "Resume PDF"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Clara Xu",
-    "section": "",
-    "text": "Clara Xu\nUniversity of Pennsylvaina\nWelcome to my personal website.\n\nQuick Links"
+    "text": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education in the U.S.?\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nClara Xu\n\n\n\n\n\n\n\n\n\n\n\n\nWhy a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post2/post.html",
@@ -145,6 +89,118 @@
     "title": "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?",
     "section": "Limitations",
     "text": "Limitations\nThese numbers are national averages. Actual demand can be very different by state or city. 36 occupations don’t have one clear education level (they’re broad groups, like “Water Transportation Occupations”). I left them out of the education table, but they’re still in the correlation numbers above."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Clara Xu",
+    "section": "",
+    "text": "Clara Xu\nUniversity of Pennsylvaina\nWelcome to my personal website.\n\nQuick Links"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Download my resume here:"
+  },
+  {
+    "objectID": "resume.html#resume-pdf",
+    "href": "resume.html#resume-pdf",
+    "title": "Resume",
+    "section": "Resume PDF",
+    "text": "Resume PDF"
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html",
+    "href": "blog/posts/post1/Taylor Series.html",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "",
+    "text": "Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as \\(\\log(1+g) \\approx g\\) as \\(g \\to 0\\), which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.\nHowever, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!"
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#starting-with-a-tangent-line-the-first-order-term",
+    "href": "blog/posts/post1/Taylor Series.html#starting-with-a-tangent-line-the-first-order-term",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Starting with a tangent line: The First-Order Term",
+    "text": "Starting with a tangent line: The First-Order Term\nSuppose you want to approximate a curved function \\(f(x)\\) at some point \\(x=a\\). The simplest thing you can do is to draw a tangent line near that point.\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)\n\\]\nThis says that starting at the function’s actual height of \\(f(a)\\), then leave the point \\(a\\) at a slope given by \\(f'(a)\\). This is a first-order approximation. It matches the function’s value and its slope at \\(a\\), but nothing else. Close to \\(a\\), it’s a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.\nSo, can we do better? What if, instead of matching just the value and the slope, we also matched the curvature?"
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#adding-curvature-the-second-order-term",
+    "href": "blog/posts/post1/Taylor Series.html#adding-curvature-the-second-order-term",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Adding Curvature: The Second-Order Term",
+    "text": "Adding Curvature: The Second-Order Term\nA function’s second derivative \\(f''(a)\\), measures how quickly a slope is changing. If we add a term that captures this bending, we get:\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)+\\frac{f''(a)}{2} (x-a)^2\n\\]\nNow we have more than a straight line. We have a parabola that matches the function’s height, slope, and curvature at \\(a\\). This hugs the true curve much more closely, for a wider range of \\(x\\) near \\(a\\)."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#the-full-series",
+    "href": "blog/posts/post1/Taylor Series.html#the-full-series",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "The Full Series",
+    "text": "The Full Series\nThis process doesn’t have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near \\(a\\). Each of them contributes to a better approximation.\n\\[\nf(x) = \\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n\n\\] And this is the Taylor series."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#a-example-in-macroeconomic-application-ln1g",
+    "href": "blog/posts/post1/Taylor Series.html#a-example-in-macroeconomic-application-ln1g",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "A Example in Macroeconomic Application: ln(1+g)",
+    "text": "A Example in Macroeconomic Application: ln(1+g)\nThe function \\(\\ln(1+x)\\) has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:\n\\[\n\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots\n\\]\nEvaluated at \\(x = 0.1\\),\n\\[\n0.1 - \\frac{0.1^2}{2} + \\frac{0.1^3}{3} - \\frac{0.1^4}{4} \\approx 0.09531,\n\\]\nalready very close to the true value \\(\\ln(1.1) \\approx 0.09531\\). The reason the approximation \\(\\ln(1+g) \\approx g\\) works so well for small \\(g\\) is that, the first-order term is simply \\(g\\), while the remaining terms become progressively smaller as \\(g \\to 0\\).\nThis shows up constantly in macroeconomics. If an economic variable grows from \\(Y_t\\) to \\(Y_{t+1}\\), we often define the growth rate as \\(g = \\frac{Y_{t+1}-Y_t}{Y_t}\\), so that\n\\[\n\\frac{Y_{t+1}}{Y_t} = 1+g.\n\\]\nThe continuously compounded growth rate, or log growth rate, is therefore\n\\[\n\\ln\\left(\\frac{Y_{t+1}}{Y_t}\\right) = \\ln(1+g).\n\\]\nAnd when \\(g\\) is small,\n\\[\n\\ln(1+g) \\approx g.\n\\]\nSo when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html",
+    "href": "blog/posts/post3/index.html",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "",
+    "text": "Many people go to college because they believe it will change their lives. In China, many students even go on to a master’s degree, because a bachelor’s degree no longer feels competitive when so many college students struggle to find jobs. But how much does education actually protect workers from unemployment?\nIn this post, I use data from IPUMS CPS to look at how unemployment rates differ across education groups over the past four decades. I also look at what happens during recessions, especially the Great Recession of 2007–2009 and the COVID-19 recession in 2020. I find that workers with more education have lower and more stable unemployment rates. However, how much education protects workers, and which groups are most affected, depend on the type of recession."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#introduction",
+    "href": "blog/posts/post3/index.html#introduction",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "",
+    "text": "Many people go to college because they believe it will change their lives. In China, many students even go on to a master’s degree, because a bachelor’s degree no longer feels competitive when so many college students struggle to find jobs. But how much does education actually protect workers from unemployment?\nIn this post, I use data from IPUMS CPS to look at how unemployment rates differ across education groups over the past four decades. I also look at what happens during recessions, especially the Great Recession of 2007–2009 and the COVID-19 recession in 2020. I find that workers with more education have lower and more stable unemployment rates. However, how much education protects workers, and which groups are most affected, depend on the type of recession."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#data",
+    "href": "blog/posts/post3/index.html#data",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Data",
+    "text": "Data\nI use monthly data from the Current Population Survey (CPS), downloaded from IPUMS CPS. The CPS surveys about 60,000 U.S. households every month, and it is the main source of the official U.S. unemployment rate. My data covers 1980 to 2025, and the monthly data in Figure 3 goes up to August 2026. I only include people aged 25 and older, because most people finish their education by that age. This is also the age group that the Bureau of Labor Statistics (BLS) uses when it reports unemployment by education. I group education into four categories: less than a high school diploma, high school diploma, some college or an associate degree, and a bachelor’s degree or higher.\nThe unemployment rate is the share of people in the labor force who do not have a job but are actively looking for one. People who are not looking for work, like retirees and students, are not in the labor force. To make sure my results describe the whole U.S. population and not just the people in the survey, I use the CPS weight WTFINL. October 2025 is missing because the data was not collected during the federal government shutdown. To check my work, I compared my 2019 results with official BLS numbers, and they were almost the same."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#unemployment-by-education-over-time",
+    "href": "blog/posts/post3/index.html#unemployment-by-education-over-time",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Unemployment by Education Over Time",
+    "text": "Unemployment by Education Over Time\n\n\n\n\n\n\nFigure 1: Annual unemployment rate by educational attainment, ages 25+, 1980–2025. Gray areas are NBER recessions.\n\n\n\nFigure 1 shows the annual unemployment rate for each education group from 1980 to 2025. The gray areas are recessions, based on dates from the National Bureau of Economic Research (NBER). There were six recessions in this period: two in the early 1980s caused by high inflation and interest rates, one in 1990–91 after an oil price shock, one in 2001 after the dot-com bubble, the Great Recession of 2007–2009 caused by the financial crisis, and the COVID-19 recession in 2020.\nAs expected, the order of the four lines never changes. Workers without a high school diploma always have the highest unemployment rate, and workers with a bachelor’s degree or higher are always at the bottom.\nThe gap between the groups becomes much larger during recessions. For example, from 2007 to 2010, the unemployment rate for workers without a high school diploma rose from 7.2% to 15.0%, while for workers with a bachelor’s degree or higher it only rose from 2.0% to 4.7%. In other words, less-educated workers are not only more likely to be unemployed, they are also more likely to lose their jobs when the economy gets worse.\nHowever, the gap has become smaller in recent years. In 1980, workers without a high school diploma were about 3.7 times as likely to be unemployed as workers with a bachelor’s degree. By 2025, they were only about 2.3 times as likely. Will this gap keep shrinking as AI changes the job market?"
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#men-and-women-in-recessions",
+    "href": "blog/posts/post3/index.html#men-and-women-in-recessions",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Men and Women in Recessions",
+    "text": "Men and Women in Recessions\n\n\n\n\n\n\nFigure 2: Women’s minus men’s unemployment rate (percentage points), ages 25+, 1980–2025. Gray areas are NBER recessions.\n\n\n\nFigure 2 looks at a different question: in each recession, were men or women hit harder? It shows the unemployment rate of women minus the unemployment rate of men. When the line is above zero, women have a higher unemployment rate. When it is below zero, men do.\nAmong workers without a high school diploma, women usually have a higher unemployment rate than men. In 2007, the gap was about 1.5 percentage points. But during the Great Recession, this changed. By 2009, men’s unemployment rate had risen faster than women’s, and it became higher than women’s for the first time since 1991. One reason is that the financial crisis hit industries like construction and manufacturing the hardest, and most workers in these industries are men.\nCOVID-19 was the opposite. In 2020, the gap grew to 2.9 percentage points, almost twice as large as before. This is because the lockdowns closed many service jobs, such as restaurants, retail stores and hotels, where many workers are women. Also, when schools closed, women often took on more of the responsibility of caring for their children.\nFor workers with a bachelor’s degree or higher, the gap was always small. One possible reason is that jobs that require a college degree are less concentrated in the industries hit hardest by these recessions, and during COVID-19, many of these jobs could be done from home."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#two-very-different-recessions",
+    "href": "blog/posts/post3/index.html#two-very-different-recessions",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Two Very Different Recessions",
+    "text": "Two Very Different Recessions\n\n\n\n\n\n\nFigure 3: Change in monthly unemployment rate since the recession began, relative to the prior 12-month average, ages 25+.\n\n\n\nFigure 3 compares the two biggest recessions in my data: the Great Recession and COVID-19. The x-axis shows the number of months since each recession began, and the y-axis shows how much the unemployment rate changed compared with the year before the recession. Zero means the unemployment rate is the same as before the recession.\nThe two recessions look very different. In the Great Recession, unemployment rose slowly. For workers without a high school diploma, it took about two years to reach the peak, and even after five years, it was still higher than before the recession.\nCOVID-19 was the opposite. Unemployment jumped to its peak in only two months, but it also recovered quickly, returning close to the pre-recession level within about two years.\nThe difference comes from the causes of the two recessions. The Great Recession was caused by a financial crisis. Banks failed, many families lost their homes, and people and businesses lost confidence in the economy. This damage took years to fix. COVID-19 was caused by lockdowns that forced businesses to close. Many jobs were only paused, not lost forever. People still wanted to spend money, and the government also sent stimulus payments. So when the economy reopened, demand came back quickly, and many workers returned to their jobs.\nIn both recessions, education protected workers. During the Great Recession, unemployment rose by 10.7 percentage points for workers without a high school diploma, but only 3.3 for workers with a bachelor’s degree or higher. During COVID-19, the numbers were 15.6 and 6.1.\nHowever, COVID-19 hit even highly educated workers harder than the Great Recession did. Their unemployment rose by 6.1 percentage points, almost twice as much as during the Great Recession. This shows that no group was fully protected from such a sudden and widespread shock. Still, workers with a bachelor’s degree were hit much less than workers without a high school diploma, so education continued to protect workers even in this very different kind of recession."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#conclusion",
+    "href": "blog/posts/post3/index.html#conclusion",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Conclusion",
+    "text": "Conclusion\nOver the past four decades, more education has always meant a lower chance of being unemployed. Education also matters most when times are hard: in every recession, workers without a high school diploma lost their jobs at a much higher rate. But recessions are not all the same. The Great Recession hit men and industries like construction the hardest and took years to recover from, while COVID-19 hit women and service jobs the hardest but recovered quickly.\nThis is a descriptive analysis, so it does not show that education directly causes lower unemployment. People with more education may also differ in other ways, such as their skills, family background or the industries they work in. Still, for anyone deciding whether more education is worth it, the data suggests that a degree does not remove the risk of unemployment, but it makes the risk much smaller.\nLoading..."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#code-and-data",
+    "href": "blog/posts/post3/index.html#code-and-data",
+    "title": "How Does Unemployment Vary by Education in the U.S.?",
+    "section": "Code and Data",
+    "text": "Code and Data\nAll code is on GitHub: CPS-Unemployment-Education."
   },
   {
     "objectID": "about.html",

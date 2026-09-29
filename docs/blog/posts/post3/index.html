@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Clara Xu">
+<meta name="dcterms.date" content="2026-09-28">
 
-<title>Blog – Clara Xu</title>
+<title>How Does Unemployment Vary by Education in the U.S.? – Clara Xu</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +31,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,67 +75,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -145,7 +87,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Clara Xu</span>
     </a>
   </div>
@@ -156,19 +98,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../bio.html"> 
+    <a class="nav-link" href="../../../bio.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../resume.html"> 
+    <a class="nav-link" href="../../../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -188,14 +130,31 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">How Does Unemployment Vary by Education in the U.S.?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">labor market</div>
+    <div class="quarto-category">data visualization</div>
+    <div class="quarto-category">IPUMS CPS</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Clara Xu </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 28, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -205,84 +164,83 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Many people go to college because they believe it will change their lives. In China, many students even go on to a master’s degree, because a bachelor’s degree no longer feels competitive when so many college students struggle to find jobs. But how much does education actually protect workers from unemployment?</p>
+<p>In this post, I use data from IPUMS CPS to look at how unemployment rates differ across education groups over the past four decades. I also look at what happens during recessions, especially the Great Recession of 2007–2009 and the COVID-19 recession in 2020. I find that workers with more education have lower and more stable unemployment rates. However, how much education protects workers, and which groups are most affected, depend on the type of recession.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>I use monthly data from the Current Population Survey (CPS), downloaded from IPUMS CPS. The CPS surveys about 60,000 U.S. households every month, and it is the main source of the official U.S. unemployment rate. My data covers 1980 to 2025, and the monthly data in <a href="#fig-recessions" class="quarto-xref">Figure&nbsp;3</a> goes up to August 2026. I only include people aged 25 and older, because most people finish their education by that age. This is also the age group that the Bureau of Labor Statistics (BLS) uses when it reports unemployment by education. I group education into four categories: less than a high school diploma, high school diploma, some college or an associate degree, and a bachelor’s degree or higher.</p>
+<p>The unemployment rate is the share of people in the labor force who do not have a job but are actively looking for one. People who are not looking for work, like retirees and students, are not in the labor force. To make sure my results describe the whole U.S. population and not just the people in the survey, I use the CPS weight <code>WTFINL</code>. October 2025 is missing because the data was not collected during the federal government shutdown. To check my work, I compared my 2019 results with official BLS numbers, and they were almost the same.</p>
+</section>
+<section id="unemployment-by-education-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="unemployment-by-education-over-time">Unemployment by Education Over Time</h2>
+<div id="fig-trend" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig1_unemp_by_educ.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Annual unemployment rate by educational attainment, ages 25+, 1980–2025. Gray areas are NBER recessions.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-trend" class="quarto-xref">Figure&nbsp;1</a> shows the annual unemployment rate for each education group from 1980 to 2025. The gray areas are recessions, based on dates from the National Bureau of Economic Research (NBER). There were six recessions in this period: two in the early 1980s caused by high inflation and interest rates, one in 1990–91 after an oil price shock, one in 2001 after the dot-com bubble, the Great Recession of 2007–2009 caused by the financial crisis, and the COVID-19 recession in 2020.</p>
+<p>As expected, the order of the four lines never changes. Workers without a high school diploma always have the highest unemployment rate, and workers with a bachelor’s degree or higher are always at the bottom.</p>
+<p>The gap between the groups becomes much larger during recessions. For example, from 2007 to 2010, the unemployment rate for workers without a high school diploma rose from 7.2% to 15.0%, while for workers with a bachelor’s degree or higher it only rose from 2.0% to 4.7%. In other words, less-educated workers are not only more likely to be unemployed, they are also more likely to lose their jobs when the economy gets worse.</p>
+<p>However, the gap has become smaller in recent years. In 1980, workers without a high school diploma were about 3.7 times as likely to be unemployed as workers with a bachelor’s degree. By 2025, they were only about 2.3 times as likely. Will this gap keep shrinking as AI changes the job market?</p>
+</section>
+<section id="men-and-women-in-recessions" class="level2">
+<h2 class="anchored" data-anchor-id="men-and-women-in-recessions">Men and Women in Recessions</h2>
+<div id="fig-gender" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig2_unemp_by_sex_educ.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Women’s minus men’s unemployment rate (percentage points), ages 25+, 1980–2025. Gray areas are NBER recessions.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-gender" class="quarto-xref">Figure&nbsp;2</a> looks at a different question: in each recession, were men or women hit harder? It shows the unemployment rate of women minus the unemployment rate of men. When the line is above zero, women have a higher unemployment rate. When it is below zero, men do.</p>
+<p>Among workers without a high school diploma, women usually have a higher unemployment rate than men. In 2007, the gap was about 1.5 percentage points. But during the Great Recession, this changed. By 2009, men’s unemployment rate had risen faster than women’s, and it became higher than women’s for the first time since 1991. One reason is that the financial crisis hit industries like construction and manufacturing the hardest, and most workers in these industries are men.</p>
+<p>COVID-19 was the opposite. In 2020, the gap grew to 2.9 percentage points, almost twice as large as before. This is because the lockdowns closed many service jobs, such as restaurants, retail stores and hotels, where many workers are women. Also, when schools closed, women often took on more of the responsibility of caring for their children.</p>
+<p>For workers with a bachelor’s degree or higher, the gap was always small. One possible reason is that jobs that require a college degree are less concentrated in the industries hit hardest by these recessions, and during COVID-19, many of these jobs could be done from home.</p>
+</section>
+<section id="two-very-different-recessions" class="level2">
+<h2 class="anchored" data-anchor-id="two-very-different-recessions">Two Very Different Recessions</h2>
+<div id="fig-recessions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recessions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fig3_recession_aligned.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recessions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Change in monthly unemployment rate since the recession began, relative to the prior 12-month average, ages 25+.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-recessions" class="quarto-xref">Figure&nbsp;3</a> compares the two biggest recessions in my data: the Great Recession and COVID-19. The x-axis shows the number of months since each recession began, and the y-axis shows how much the unemployment rate changed compared with the year before the recession. Zero means the unemployment rate is the same as before the recession.</p>
+<p>The two recessions look very different. In the Great Recession, unemployment rose slowly. For workers without a high school diploma, it took about two years to reach the peak, and even after five years, it was still higher than before the recession.</p>
+<p>COVID-19 was the opposite. Unemployment jumped to its peak in only two months, but it also recovered quickly, returning close to the pre-recession level within about two years.</p>
+<p>The difference comes from the causes of the two recessions. The Great Recession was caused by a financial crisis. Banks failed, many families lost their homes, and people and businesses lost confidence in the economy. This damage took years to fix. COVID-19 was caused by lockdowns that forced businesses to close. Many jobs were only paused, not lost forever. People still wanted to spend money, and the government also sent stimulus payments. So when the economy reopened, demand came back quickly, and many workers returned to their jobs.</p>
+<p>In both recessions, education protected workers. During the Great Recession, unemployment rose by 10.7 percentage points for workers without a high school diploma, but only 3.3 for workers with a bachelor’s degree or higher. During COVID-19, the numbers were 15.6 and 6.1.</p>
+<p>However, COVID-19 hit even highly educated workers harder than the Great Recession did. Their unemployment rose by 6.1 percentage points, almost twice as much as during the Great Recession. This shows that no group was fully protected from such a sudden and widespread shock. Still, workers with a bachelor’s degree were hit much less than workers without a high school diploma, so education continued to protect workers even in this very different kind of recession.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Over the past four decades, more education has always meant a lower chance of being unemployed. Education also matters most when times are hard: in every recession, workers without a high school diploma lost their jobs at a much higher rate. But recessions are not all the same. The Great Recession hit men and industries like construction the hardest and took years to recover from, while COVID-19 hit women and service jobs the hardest but recovered quickly.</p>
+<p>This is a descriptive analysis, so it does not show that education directly causes lower unemployment. People with more education may also differ in other ways, such as their skills, family background or the industries they work in. Still, for anyone deciding whether more education is worth it, the data suggests that a degree does not remove the risk of unemployment, but it makes the risk much smaller.</p>
+<div class="strawpoll-embed" id="strawpoll_PbZqbMbmAyN" style="height: 644px; max-width: 640px; width: 100%; margin: 0 auto; display: flex; flex-direction: column;"><iframe title="StrawPoll Embed" id="strawpoll_iframe_PbZqbMbmAyN" src="https://strawpoll.com/embed/PbZqbMbmAyN" style="position: static; visibility: visible; display: block; width: 100%; flex-grow: 1;" frameborder="0" allowfullscreen="" allowtransparency="">Loading...</iframe><script async="" src="https://cdn.strawpoll.com/dist/widgets.js" charset="utf-8"></script></div>
+</section>
+<section id="code-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="code-and-data">Code and Data</h2>
+<p>All code is on GitHub: <a href="https://github.com/xushiori-svg/Data-Visualization-with-the-U.S.-Labor-Market-IPUMS-CPS-.git">CPS-Unemployment-Education</a>.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="d2ViJTIwc2NyYXBpbmclMkNSJTJDY2FyZWVycyUyQ3J2ZXN0" data-listing-date-sort="1790568000000" data-listing-file-modified-sort="1790647417020" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="711">
-<div class="thumbnail"><a href="../blog/posts/post2/post.html" class="no-external">
-
-<img loading="lazy" src="../blog/posts/post2/images/title-banner.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/post2/post.html" class="no-external">Growth Rate vs.&nbsp;Annual Openings: Which One Tells You Where the Jobs Are?</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/posts/post2/post.html" class="no-external">
-“Fastest-growing occupation” sounds like a good bet for a career or a major. But growth rate is a <em>relative</em> number – it tells you how fast an occupation is expanding, not how…<strong></strong>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/post2/post.html" class="no-external">
-<div class="listing-date">
-Sep 28, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bGFib3IlMjBtYXJrZXQlMkNkYXRhJTIwdmlzdWFsaXphdGlvbiUyQ0lQVU1TJTIwQ1BT" data-listing-date-sort="1790568000000" data-listing-file-modified-sort="1790648237875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1373">
-<div class="thumbnail"><a href="../blog/posts/post3/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/post3/images/fig1_unemp_by_educ.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/post3/index.html" class="no-external">How Does Unemployment Vary by Education in the U.S.?</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/posts/post3/index.html" class="no-external">
-Many people go to college because they believe it will change their lives. In China, many students even go on to a master’s degree, because a bachelor’s degree no longer…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/post3/index.html" class="no-external">
-<div class="listing-date">
-Sep 28, 2026
-</div>
-<div class="listing-author">
-Clara Xu
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="cGVyc29uYWwlMkNkYXRhLXNjaWVuY2U=" data-listing-date-sort="1789358400000" data-listing-file-modified-sort="1790647416998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="481">
-<div class="thumbnail"><a href="../blog/posts/post1/Taylor Series.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/post1/Taylor p1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/post1/Taylor Series.html" class="no-external">Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/posts/post1/Taylor Series.html" class="no-external">
-Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as <span class="math inline">\(\log(1+g) \approx g\)</span> as <span class="math inline">\(g \to 0\)</span>, which…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/post1/Taylor Series.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -687,7 +645,7 @@ Sep 14, 2026
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../images/UniversityofPennsylvania_FullLogo_RGB.png" class="img-fluid" width="100"></p>
+<p><img src="../../../images/UniversityofPennsylvania_FullLogo_RGB.png" class="img-fluid" width="100"></p>
 </div>   
     <div class="nav-footer-center">
 <p>© 2026 Clara Xu</p>
