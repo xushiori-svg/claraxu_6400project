@@ -1,6 +1,6 @@
 ---
 title: "Growth Rate vs. Annual Openings: Which One Tells You Where the Jobs Are?"
-date: today
+date: "2024-09-21"
 categories: [web scraping, R, careers, rvest]
 image: images/title-banner.png
 ---
