@@ -5,7 +5,11 @@ date: "2026-10-07"
 categories: [exchange rates, data visualization, FRED]
 ---
 
-In January 2021, one US dollar bought about 104 Japanese yen. By July 2026, it bought about 162. For Japanese families, that means imported food and fuel cost more. For tourists, Kyoto suddenly feels cheap. China's yuan tells a different story. Over the same five years, it lost less than 5% against the dollar. Both countries faced the same push from outside. Starting in 2022, the Federal Reserve raised interest rates faster than it had in four decades. So why did the two currencies react so differently?
+In January 2021, one US dollar bought about 104 Japanese yen. 
+
+By July 2026, it bought about 162. For Japanese families, that means imported food and fuel cost more. For tourists, Kyoto suddenly feels cheap. However, China's yuan tells a different story. Over the same five years, it lost less than 5% against the dollar. 
+
+Both countries faced the same push from outside. Starting in 2022, the Federal Reserve raised interest rates faster than it had in four decades. So why did the two currencies react so differently?
 
 A big part of the answer is interest rates at home. Japan kept its rates near zero while US rates jumped above 5%, which gave investors a strong reason to move money out of yen and into dollars. China's rates started higher, and its government keeps a close hand on how far the yuan can move.
 
