@@ -70,7 +70,7 @@ The log IGE is only 0.33–0.39 at ages 25–27 and mostly 0.45–0.55 after 30.
 
 ## Takeaway
 
-To match parents and children in longitudinal data, you need two IDs: a person ID that never changes and a family ID that changes every year. Joining the person-year table to itself on the same year and family ID, and using `WHERE` to keep children and heads, finds each child's parent. `GROUP BY` and `HAVING` turn several years of matches into one clean row per pair, and `CASE WHEN` inside `AVG()` builds both one-year and multi-year income in a single query. With this sample, one year of income gives an IGE of 0.31 and multi-year averages give 0.48, so it is worth taking the extra step to average income over several years.
+Matching parents and children takes only one self-join on year and family ID, but its real value is that it lets us follow both generations over many years. One year of income gives an IGE of 0.31, while averages over several years give 0.48, so a single snapshot makes families look more mobile than they are.
 
 ---
 
