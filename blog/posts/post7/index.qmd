@@ -1,0 +1,35 @@
+---
+title: "Where Has Rent Risen Fastest in New York?"
+author: "Clara Xu"
+date: "2026-10-27"
+categories: [housing, Plotly, interactive visualization]
+resources:
+  - images/fig_map_nyc_zip.html
+  - images/fig_dumbbell_rent.html
+---
+
+Many people who work in Manhattan do not live there. They live in Brooklyn, Queens, or across the Hudson River in New Jersey, and take the subway or the PATH train to work every day. When friends talk about moving to New York, the first question is always about rent. Since 2019, rent in New York has gone up a lot, but did it go up the same amount everywhere? And is living in New Jersey still a good deal?
+
+To answer this, I use the Zillow Observed Rent Index (ZORI). It measures the typical monthly rent of homes and apartments in each ZIP code, and it is updated every month. I look at the five boroughs of New York City and three nearby New Jersey counties, Hudson, Bergen and Essex, where many commuters live. I compare rent in January 2019, before the pandemic, with the latest month, September 2026. After dropping ZIP codes without data in 2019, I have 97 ZIP codes, 81 in New York and 16 in New Jersey.
+
+The map below shows how much rent changed in each ZIP code. Darker color means a bigger increase. Move your mouse over an area to see its neighborhood name, its rent in 2019 and today, and the percent change. You can also zoom in to compare neighborhoods that sit close to each other.
+
+<iframe src="images/fig_map_nyc_zip.html" width="100%" height="650" style="border:none;"></iframe>
+
+Over the whole area, rent rose a lot. In a typical New York ZIP code, rent went up 46%, and in a typical New Jersey ZIP code it went up 42%. But the map shows big differences between neighborhoods. The fastest increases are in popular parts of Brooklyn and lower Manhattan. Rent in Williamsburg rose about 63%, Greenpoint 65% and Park Slope 57%. In Manhattan, the West Village rose 61% and Tribeca and SoHo 59%. Some areas grew much more slowly. Harlem and East Harlem rose only about 34% to 36%. On the New Jersey side, the areas closest to Manhattan, like Hoboken, Downtown Jersey City and Weehawken, rose about 36% to 40%.
+
+One number needs some care. Carroll Gardens in Brooklyn shows the largest increase on the map, 101%. Its rent in January 2019 was only about $2,270, which is low for this neighborhood.
+
+The second chart picks 15 well-known neighborhoods. For each one, the blue dot is the typical rent in January 2019 and the orange dot is the rent today. A longer line means rent went up more. Move your mouse over a dot to see the exact numbers.
+
+<iframe src="images/fig_dumbbell_rent.html" width="100%" height="600" style="border:none;"></iframe>
+
+Williamsburg and Hoboken are a good example. Both are about 20 to 30 minutes from Midtown Manhattan by train. In January 2019, their typical rents were very close, about $3,030 in Williamsburg and $2,860 in Hoboken, a gap of less than $200 a month. Today, Williamsburg is about $4,940 and Hoboken is about $4,010. The gap is now more than $900 a month, or about $11,000 a year. Downtown Jersey City shows a similar pattern. Its rent went from about $2,820 to $3,890, while rent in the West Village went from $3,730 to more than $6,000.
+
+## Takeaway
+
+Since 2019, rent has gone up almost everywhere in New York and nearby New Jersey. Still, the increase was not the same everywhere. Popular Brooklyn neighborhoods and lower Manhattan rose the fastest, while Harlem and the New Jersey areas along the Hudson rose more slowly. For someone looking for an apartment, neighborhoods like Hoboken and Downtown Jersey City are worth a look, as they are close to Manhattan and their rent has grown more slowly than in the most popular parts of Brooklyn.
+
+---
+
+*Data: Rent data come from the Zillow Observed Rent Index (ZORI), smoothed, all homes plus multifamily, at the ZIP code level, January 2019 to September 2026. ZIP code boundaries come from the 2020 Census ZIP Code Tabulation Areas, downloaded with the tigris package. The area covers the five New York City boroughs and Hudson, Bergen and Essex counties in New Jersey. ZIP codes without rent data in January 2019 are left out. Neighborhood names were added by hand for well-known ZIP codes. Code and data are available on [GitHub](https://github.com/xushiori-svg/nyc-rent-map).*
