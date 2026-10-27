@@ -116,7 +116,7 @@
     "href": "blog/posts/post1/Taylor Series.html",
     "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
     "section": "",
-    "text": "Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as \\(\\log(1+g) \\approx g\\) as \\(g \\to 0\\), which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.\nHowever, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!"
+    "text": "Economists use a shortcut all the time: a log change is “the same as” a percentage change, because \\(\\ln(1+g) \\approx g\\). If GDP grows 2%, the log change is 0.0198, close enough. But if prices in a high-inflation country double in a year (\\(g = 100\\%\\)), the log change is only \\(\\ln 2 \\approx 0.69\\). Quietly treating the two as equal would understate inflation by about 30 points.\nSo the question of this post is: why can we replace a complicated function with a few simple terms near a point, and how do we know when that replacement is safe? A textbook gives the Taylor formula. What it often does not give is the reason it works, and that reason is exactly what tells us when the shortcut breaks."
   },
   {
     "objectID": "blog/posts/post1/Taylor Series.html#starting-with-a-tangent-line-the-first-order-term",
@@ -292,5 +292,40 @@
     "title": "Where Has Rent Risen Fastest in New York?",
     "section": "Takeaway",
     "text": "Takeaway\nSince 2019, rent has gone up almost everywhere in New York and nearby New Jersey. Still, the increase was not the same everywhere. Popular Brooklyn neighborhoods and lower Manhattan rose the fastest, while Harlem and the New Jersey areas along the Hudson rose more slowly. For someone looking for an apartment, neighborhoods like Hoboken and Downtown Jersey City are worth a look, as they are close to Manhattan and their rent has grown more slowly than in the most popular parts of Brooklyn.\n\nData: Rent data come from the Zillow Observed Rent Index (ZORI), smoothed, all homes plus multifamily, at the ZIP code level, January 2019 to September 2026. ZIP code boundaries come from the 2020 Census ZIP Code Tabulation Areas, downloaded with the tigris package. The area covers the five New York City boroughs and Hudson, Bergen and Essex counties in New Jersey. ZIP codes without rent data in January 2019 are left out. Neighborhood names were added by hand for well-known ZIP codes. Code and data are available on GitHub."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#step-1-match-the-height-and-the-slope",
+    "href": "blog/posts/post1/Taylor Series.html#step-1-match-the-height-and-the-slope",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Step 1: Match the height and the slope",
+    "text": "Step 1: Match the height and the slope\nSuppose we only know a function \\(f(x)\\) at one point \\(x = a\\). The simplest guess for nearby values is the tangent line:\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)\n\\]\nThis line agrees with the function in two ways at \\(a\\): same height, same slope. It gets the direction right, but it ignores bending, so the line and the curve slowly drift apart."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#step-2-why-matching-more-derivatives-helps",
+    "href": "blog/posts/post1/Taylor Series.html#step-2-why-matching-more-derivatives-helps",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Step 2: Why matching more derivatives helps",
+    "text": "Step 2: Why matching more derivatives helps\nHere is the key idea. The gap between the curve and the tangent line comes from the fact that the slope is changing, which is what \\(f''(a)\\) measures. If we add a term that has the same second derivative as \\(f\\) at \\(a\\),\n\\[\nf(x)\\approx f(a)+f'(a)(x-a)+\\frac{f''(a)}{2} (x-a)^2,\n\\]\nthe approximation now agrees with \\(f\\) in height, slope, and curvature. (The \\(\\frac{1}{2}\\) is there because the second derivative of \\((x-a)^2\\) is 2; in general, the \\(n!\\) in each term makes the \\(n\\)-th derivative of the polynomial equal \\(f^{(n)}(a)\\).)\nRepeating this gives the Taylor series:\n\\[\nf(x) = \\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n\n\\]"
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#step-3-why-the-leftover-error-is-small",
+    "href": "blog/posts/post1/Taylor Series.html#step-3-why-the-leftover-error-is-small",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Step 3: Why the leftover error is small",
+    "text": "Step 3: Why the leftover error is small\nMatching derivatives explains how the polynomial is built. The reason it is accurate comes from the size of what we leave out. Taylor’s theorem says that if we stop after the \\(n\\)-th term, the error is\n\\[\nR_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}\n\\]\nfor some point \\(c\\) between \\(a\\) and \\(x\\). This one formula answers the question:\n\nClose to \\(a\\), the error is tiny. It is proportional to \\((x-a)^{n+1}\\). If \\(x-a = 0.1\\), a first-order approximation has error on the order of \\(0.01\\); a second-order one, on the order of \\(0.001\\).\nFar from \\(a\\), the error grows fast. The same power that shrinks small distances blows up large ones, so the approximation is only local.\nMore terms help, as long as we stay close. Each extra term adds another power of \\((x-a)\\) and a larger factorial in the denominator."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#testing-it-on-ln1g",
+    "href": "blog/posts/post1/Taylor Series.html#testing-it-on-ln1g",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Testing it on \\(\\ln(1+g)\\)",
+    "text": "Testing it on \\(\\ln(1+g)\\)\nFor \\(\\ln(1+g)\\) around \\(g = 0\\), the series is\n\\[\n\\ln(1+g) = g - \\frac{g^2}{2} + \\frac{g^3}{3} - \\frac{g^4}{4} + \\cdots\n\\]\nThe first-order shortcut keeps only \\(g\\), so the error formula predicts the error should be about \\(g^2/2\\). The table checks this:\n\nTable 1. First-order approximation \\(\\ln(1+g)\\approx g\\) versus the true value. Values computed directly from the formulas.\n\n\n\n\n\n\n\n\n\n\nGrowth rate \\(g\\)\nTrue \\(\\ln(1+g)\\)\nShortcut \\(g\\)\nActual error\nPredicted \\(g^2/2\\)\nError as % of true value\n\n\n\n\n1%\n0.00995\n0.01\n0.00005\n0.00005\n0.5%\n\n\n5%\n0.04879\n0.05\n0.00121\n0.00125\n2.5%\n\n\n10%\n0.09531\n0.10\n0.00469\n0.00500\n4.9%\n\n\n50%\n0.40547\n0.50\n0.09453\n0.12500\n23.3%\n\n\n100%\n0.69315\n1.00\n0.30685\n0.50000\n44.3%\n\n\n\nFor normal growth rates of a few percent, the error is a rounding issue. At 50% or 100%, it is large, just as the \\((x-a)^2\\) term predicts. Adding the second-order term helps a lot at moderate values: at \\(g = 0.1\\), \\(0.1 - 0.005 = 0.0950\\), already very close to \\(0.0953\\)."
+  },
+  {
+    "objectID": "blog/posts/post1/Taylor Series.html#takeaway",
+    "href": "blog/posts/post1/Taylor Series.html#takeaway",
+    "title": "Why a Handful of Derivatives Can Rebuild an Entire Curve: Understanding Taylor Series",
+    "section": "Takeaway",
+    "text": "Takeaway\nBack to the question: we can rebuild a curve from a few derivatives because each term matches one more feature of the function at a point, and what we leave out shrinks like a power of the distance from that point. That is also why the approximation is local.\nFor economics, this gives a practical rule. Using \\(\\ln(1+g) \\approx g\\) is fine for typical GDP growth, interest rates, or monthly inflation in most countries, where \\(g\\) is a few percent. For large changes, such as high inflation, asset prices that double, or comparing values decades apart, we should report the exact percentage change or keep the second-order term. The Taylor formula tells us not only how to approximate, but also how much we lose by doing it."
   }
 ]

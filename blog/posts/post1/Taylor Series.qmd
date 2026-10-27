@@ -6,76 +6,78 @@ categories:
   - data-science
 ---
 
-Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as $\log(1+g) \approx g$ as $g \to 0$, which really help simplify formulas. Far fewer can explain why knowing a function's value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.
+Economists use a shortcut all the time: a log change is "the same as" a percentage change, because $\ln(1+g) \approx g$. If GDP grows 2%, the log change is 0.0198, close enough. But if prices in a high-inflation country double in a year ($g = 100\%$), the log change is only $\ln 2 \approx 0.69$. Quietly treating the two as equal would understate inflation by about 30 points.
+
+So the question of this post is: **why can we replace a complicated function with a few simple terms near a point, and how do we know when that replacement is safe?** A textbook gives the Taylor formula. What it often does not give is the reason it works, and that reason is exactly what tells us when the shortcut breaks.
 
 ![](Taylor%20p1.png){width="500px"}
 
-However, the idea underneath them is not complicated at all - it's one of the most natural things you already do every day!
+## Step 1: Match the height and the slope
 
-## Starting with a tangent line: The First-Order Term
-
-Suppose you want to approximate a curved function $f(x)$ at some point $x=a$. The simplest thing you can do is to draw a tangent line near that point.
+Suppose we only know a function $f(x)$ at one point $x = a$. The simplest guess for nearby values is the tangent line:
 
 $$
 f(x)\approx f(a)+f'(a)(x-a)
 $$
 
-This says that starting at the function's actual height of $f(a)$, then leave the point $a$ at a slope given by $f'(a)$. This is a first-order approximation. It matches the function's value and its slope at $a$, but nothing else. Close to $a$, it's a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.
+This line agrees with the function in two ways at $a$: same height, same slope. It gets the direction right, but it ignores bending, so the line and the curve slowly drift apart.
 
-So, can we do better? What if, instead of matching just the value and the slope, we also matched the *curvature*?
+## Step 2: Why matching more derivatives helps
 
-## Adding Curvature: The Second-Order Term
-
-A function's second derivative $f''(a)$, measures how quickly a slope is changing. If we add a term that captures this bending, we get:
+Here is the key idea. The gap between the curve and the tangent line comes from the fact that the slope is changing, which is what $f''(a)$ measures. If we add a term that has the same second derivative as $f$ at $a$,
 
 $$
-f(x)\approx f(a)+f'(a)(x-a)+\frac{f''(a)}{2} (x-a)^2 
+f(x)\approx f(a)+f'(a)(x-a)+\frac{f''(a)}{2} (x-a)^2,
 $$
 
-Now we have more than a straight line. We have a parabola that matches the function's height, slope, and curvature at $a$. This hugs the true curve much more closely, for a wider range of $x$ near $a$.
+the approximation now agrees with $f$ in height, slope, *and* curvature. (The $\frac{1}{2}$ is there because the second derivative of $(x-a)^2$ is 2; in general, the $n!$ in each term makes the $n$-th derivative of the polynomial equal $f^{(n)}(a)$.)
 
-## The Full Series
-
-This process doesn't have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near $a$. Each of them contributes to a better approximation.
+Repeating this gives the Taylor series:
 
 $$
 f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
-$$ And this is the Taylor series.
-
-## A Example in Macroeconomic Application: ln(1+g)
-
-The function $\ln(1+x)$ has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:
-
-$$
-\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots
 $$
 
-Evaluated at $x = 0.1$,
+## Step 3: Why the leftover error is small
+
+Matching derivatives explains how the polynomial is built. The reason it is *accurate* comes from the size of what we leave out. Taylor's theorem says that if we stop after the $n$-th term, the error is
 
 $$
-0.1 - \frac{0.1^2}{2} + \frac{0.1^3}{3} - \frac{0.1^4}{4} \approx 0.09531,
+R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
 $$
 
-already very close to the true value $\ln(1.1) \approx 0.09531$. The reason the approximation $\ln(1+g) \approx g$ works so well for small $g$ is that, the first-order term is simply $g$, while the remaining terms become progressively smaller as $g \to 0$.
+for some point $c$ between $a$ and $x$. This one formula answers the question:
 
-This shows up constantly in macroeconomics. If an economic variable grows from $Y_t$ to $Y_{t+1}$, we often define the growth rate as $g = \frac{Y_{t+1}-Y_t}{Y_t}$, so that
+- **Close to $a$, the error is tiny.** It is proportional to $(x-a)^{n+1}$. If $x-a = 0.1$, a first-order approximation has error on the order of $0.01$; a second-order one, on the order of $0.001$.
+- **Far from $a$, the error grows fast.** The same power that shrinks small distances blows up large ones, so the approximation is only local.
+- **More terms help, as long as we stay close.** Each extra term adds another power of $(x-a)$ and a larger factorial in the denominator.
 
-$$
-\frac{Y_{t+1}}{Y_t} = 1+g.
-$$ 
+## Testing it on $\ln(1+g)$
 
-The continuously compounded growth rate, or log growth rate, is therefore
-
-$$
-\ln\left(\frac{Y_{t+1}}{Y_t}\right) = \ln(1+g).
-$$
-
-And when $g$ is small,
+For $\ln(1+g)$ around $g = 0$, the series is
 
 $$
-\ln(1+g) \approx g.
+\ln(1+g) = g - \frac{g^2}{2} + \frac{g^3}{3} - \frac{g^4}{4} + \cdots
 $$
 
-So when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm.
+The first-order shortcut keeps only $g$, so the error formula predicts the error should be about $g^2/2$. The table checks this:
+
+| Growth rate $g$ | True $\ln(1+g)$ | Shortcut $g$ | Actual error | Predicted $g^2/2$ | Error as % of true value |
+|---|---|---|---|---|---|
+| 1% | 0.00995 | 0.01 | 0.00005 | 0.00005 | 0.5% |
+| 5% | 0.04879 | 0.05 | 0.00121 | 0.00125 | 2.5% |
+| 10% | 0.09531 | 0.10 | 0.00469 | 0.00500 | 4.9% |
+| 50% | 0.40547 | 0.50 | 0.09453 | 0.12500 | 23.3% |
+| 100% | 0.69315 | 1.00 | 0.30685 | 0.50000 | 44.3% |
+
+: Table 1. First-order approximation $\ln(1+g)\approx g$ versus the true value. Values computed directly from the formulas.
+
+For normal growth rates of a few percent, the error is a rounding issue. At 50% or 100%, it is large, just as the $(x-a)^2$ term predicts. Adding the second-order term helps a lot at moderate values: at $g = 0.1$, $0.1 - 0.005 = 0.0950$, already very close to $0.0953$.
+
+## Takeaway
+
+Back to the question: we can rebuild a curve from a few derivatives because each term matches one more feature of the function at a point, and what we leave out shrinks like a power of the distance from that point. That is also why the approximation is local.
+
+For economics, this gives a practical rule. Using $\ln(1+g) \approx g$ is fine for typical GDP growth, interest rates, or monthly inflation in most countries, where $g$ is a few percent. For large changes, such as high inflation, asset prices that double, or comparing values decades apart, we should report the exact percentage change or keep the second-order term. The Taylor formula tells us not only how to approximate, but also how much we lose by doing it.
 
 ------------------------------------------------------------------------

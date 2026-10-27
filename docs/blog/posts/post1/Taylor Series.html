@@ -185,57 +185,118 @@ window.Quarto = {
 </header>
 
 
-<p>Most people who take calculus can recite the formula for a Taylor series. In economics, we often use approximations such as <span class="math inline">\(\log(1+g) \approx g\)</span> as <span class="math inline">\(g \to 0\)</span>, which really help simplify formulas. Far fewer can explain why knowing a function’s value and a few of its derivatives at a single point is enough to reconstruct everywhere nearby.</p>
+<p>Economists use a shortcut all the time: a log change is “the same as” a percentage change, because <span class="math inline">\(\ln(1+g) \approx g\)</span>. If GDP grows 2%, the log change is 0.0198, close enough. But if prices in a high-inflation country double in a year (<span class="math inline">\(g = 100\%\)</span>), the log change is only <span class="math inline">\(\ln 2 \approx 0.69\)</span>. Quietly treating the two as equal would understate inflation by about 30 points.</p>
+<p>So the question of this post is: <strong>why can we replace a complicated function with a few simple terms near a point, and how do we know when that replacement is safe?</strong> A textbook gives the Taylor formula. What it often does not give is the reason it works, and that reason is exactly what tells us when the shortcut breaks.</p>
 <p><img src="Taylor p1.png" class="img-fluid" width="500"></p>
-<p>However, the idea underneath them is not complicated at all - it’s one of the most natural things you already do every day!</p>
-<section id="starting-with-a-tangent-line-the-first-order-term" class="level2">
-<h2 class="anchored" data-anchor-id="starting-with-a-tangent-line-the-first-order-term">Starting with a tangent line: The First-Order Term</h2>
-<p>Suppose you want to approximate a curved function <span class="math inline">\(f(x)\)</span> at some point <span class="math inline">\(x=a\)</span>. The simplest thing you can do is to draw a tangent line near that point.</p>
+<section id="step-1-match-the-height-and-the-slope" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-match-the-height-and-the-slope">Step 1: Match the height and the slope</h2>
+<p>Suppose we only know a function <span class="math inline">\(f(x)\)</span> at one point <span class="math inline">\(x = a\)</span>. The simplest guess for nearby values is the tangent line:</p>
 <p><span class="math display">\[
 f(x)\approx f(a)+f'(a)(x-a)
 \]</span></p>
-<p>This says that starting at the function’s actual height of <span class="math inline">\(f(a)\)</span>, then leave the point <span class="math inline">\(a\)</span> at a slope given by <span class="math inline">\(f'(a)\)</span>. This is a first-order approximation. It matches the function’s value and its slope at <span class="math inline">\(a\)</span>, but nothing else. Close to <span class="math inline">\(a\)</span>, it’s a good approximation. Move far enough away, and the curve bends away from the straight line, and the approximation falls apart.</p>
-<p>So, can we do better? What if, instead of matching just the value and the slope, we also matched the <em>curvature</em>?</p>
+<p>This line agrees with the function in two ways at <span class="math inline">\(a\)</span>: same height, same slope. It gets the direction right, but it ignores bending, so the line and the curve slowly drift apart.</p>
 </section>
-<section id="adding-curvature-the-second-order-term" class="level2">
-<h2 class="anchored" data-anchor-id="adding-curvature-the-second-order-term">Adding Curvature: The Second-Order Term</h2>
-<p>A function’s second derivative <span class="math inline">\(f''(a)\)</span>, measures how quickly a slope is changing. If we add a term that captures this bending, we get:</p>
+<section id="step-2-why-matching-more-derivatives-helps" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-why-matching-more-derivatives-helps">Step 2: Why matching more derivatives helps</h2>
+<p>Here is the key idea. The gap between the curve and the tangent line comes from the fact that the slope is changing, which is what <span class="math inline">\(f''(a)\)</span> measures. If we add a term that has the same second derivative as <span class="math inline">\(f\)</span> at <span class="math inline">\(a\)</span>,</p>
 <p><span class="math display">\[
-f(x)\approx f(a)+f'(a)(x-a)+\frac{f''(a)}{2} (x-a)^2
+f(x)\approx f(a)+f'(a)(x-a)+\frac{f''(a)}{2} (x-a)^2,
 \]</span></p>
-<p>Now we have more than a straight line. We have a parabola that matches the function’s height, slope, and curvature at <span class="math inline">\(a\)</span>. This hugs the true curve much more closely, for a wider range of <span class="math inline">\(x\)</span> near <span class="math inline">\(a\)</span>.</p>
-</section>
-<section id="the-full-series" class="level2">
-<h2 class="anchored" data-anchor-id="the-full-series">The Full Series</h2>
-<p>This process doesn’t have to stop at curvature. The third derivative tells you how the curvature itself is changing. The fourth derivative tells you how that is changing. Each new derivative captures a finer and finer detail about how the function is bending and twisting near <span class="math inline">\(a\)</span>. Each of them contributes to a better approximation.</p>
+<p>the approximation now agrees with <span class="math inline">\(f\)</span> in height, slope, <em>and</em> curvature. (The <span class="math inline">\(\frac{1}{2}\)</span> is there because the second derivative of <span class="math inline">\((x-a)^2\)</span> is 2; in general, the <span class="math inline">\(n!\)</span> in each term makes the <span class="math inline">\(n\)</span>-th derivative of the polynomial equal <span class="math inline">\(f^{(n)}(a)\)</span>.)</p>
+<p>Repeating this gives the Taylor series:</p>
 <p><span class="math display">\[
 f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
-\]</span> And this is the Taylor series.</p>
+\]</span></p>
 </section>
-<section id="a-example-in-macroeconomic-application-ln1g" class="level2">
-<h2 class="anchored" data-anchor-id="a-example-in-macroeconomic-application-ln1g">A Example in Macroeconomic Application: ln(1+g)</h2>
-<p>The function <span class="math inline">\(\ln(1+x)\)</span> has a useful property: its derivatives follow a simple pattern. Evaluated at x = 0, we have:</p>
+<section id="step-3-why-the-leftover-error-is-small" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-why-the-leftover-error-is-small">Step 3: Why the leftover error is small</h2>
+<p>Matching derivatives explains how the polynomial is built. The reason it is <em>accurate</em> comes from the size of what we leave out. Taylor’s theorem says that if we stop after the <span class="math inline">\(n\)</span>-th term, the error is</p>
 <p><span class="math display">\[
-\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots
+R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
 \]</span></p>
-<p>Evaluated at <span class="math inline">\(x = 0.1\)</span>,</p>
+<p>for some point <span class="math inline">\(c\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>. This one formula answers the question:</p>
+<ul>
+<li><strong>Close to <span class="math inline">\(a\)</span>, the error is tiny.</strong> It is proportional to <span class="math inline">\((x-a)^{n+1}\)</span>. If <span class="math inline">\(x-a = 0.1\)</span>, a first-order approximation has error on the order of <span class="math inline">\(0.01\)</span>; a second-order one, on the order of <span class="math inline">\(0.001\)</span>.</li>
+<li><strong>Far from <span class="math inline">\(a\)</span>, the error grows fast.</strong> The same power that shrinks small distances blows up large ones, so the approximation is only local.</li>
+<li><strong>More terms help, as long as we stay close.</strong> Each extra term adds another power of <span class="math inline">\((x-a)\)</span> and a larger factorial in the denominator.</li>
+</ul>
+</section>
+<section id="testing-it-on-ln1g" class="level2">
+<h2 class="anchored" data-anchor-id="testing-it-on-ln1g">Testing it on <span class="math inline">\(\ln(1+g)\)</span></h2>
+<p>For <span class="math inline">\(\ln(1+g)\)</span> around <span class="math inline">\(g = 0\)</span>, the series is</p>
 <p><span class="math display">\[
-0.1 - \frac{0.1^2}{2} + \frac{0.1^3}{3} - \frac{0.1^4}{4} \approx 0.09531,
+\ln(1+g) = g - \frac{g^2}{2} + \frac{g^3}{3} - \frac{g^4}{4} + \cdots
 \]</span></p>
-<p>already very close to the true value <span class="math inline">\(\ln(1.1) \approx 0.09531\)</span>. The reason the approximation <span class="math inline">\(\ln(1+g) \approx g\)</span> works so well for small <span class="math inline">\(g\)</span> is that, the first-order term is simply <span class="math inline">\(g\)</span>, while the remaining terms become progressively smaller as <span class="math inline">\(g \to 0\)</span>.</p>
-<p>This shows up constantly in macroeconomics. If an economic variable grows from <span class="math inline">\(Y_t\)</span> to <span class="math inline">\(Y_{t+1}\)</span>, we often define the growth rate as <span class="math inline">\(g = \frac{Y_{t+1}-Y_t}{Y_t}\)</span>, so that</p>
-<p><span class="math display">\[
-\frac{Y_{t+1}}{Y_t} = 1+g.
-\]</span></p>
-<p>The continuously compounded growth rate, or log growth rate, is therefore</p>
-<p><span class="math display">\[
-\ln\left(\frac{Y_{t+1}}{Y_t}\right) = \ln(1+g).
-\]</span></p>
-<p>And when <span class="math inline">\(g\)</span> is small,</p>
-<p><span class="math display">\[
-\ln(1+g) \approx g.
-\]</span></p>
-<p>So when economists write log changes as an approximation to percentage growth rates, they are using the first-order Taylor approximation of the logarithm.</p>
+<p>The first-order shortcut keeps only <span class="math inline">\(g\)</span>, so the error formula predicts the error should be about <span class="math inline">\(g^2/2\)</span>. The table checks this:</p>
+<table class="caption-top table">
+<caption>Table 1. First-order approximation <span class="math inline">\(\ln(1+g)\approx g\)</span> versus the true value. Values computed directly from the formulas.</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Growth rate <span class="math inline">\(g\)</span></th>
+<th>True <span class="math inline">\(\ln(1+g)\)</span></th>
+<th>Shortcut <span class="math inline">\(g\)</span></th>
+<th>Actual error</th>
+<th>Predicted <span class="math inline">\(g^2/2\)</span></th>
+<th>Error as % of true value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1%</td>
+<td>0.00995</td>
+<td>0.01</td>
+<td>0.00005</td>
+<td>0.00005</td>
+<td>0.5%</td>
+</tr>
+<tr class="even">
+<td>5%</td>
+<td>0.04879</td>
+<td>0.05</td>
+<td>0.00121</td>
+<td>0.00125</td>
+<td>2.5%</td>
+</tr>
+<tr class="odd">
+<td>10%</td>
+<td>0.09531</td>
+<td>0.10</td>
+<td>0.00469</td>
+<td>0.00500</td>
+<td>4.9%</td>
+</tr>
+<tr class="even">
+<td>50%</td>
+<td>0.40547</td>
+<td>0.50</td>
+<td>0.09453</td>
+<td>0.12500</td>
+<td>23.3%</td>
+</tr>
+<tr class="odd">
+<td>100%</td>
+<td>0.69315</td>
+<td>1.00</td>
+<td>0.30685</td>
+<td>0.50000</td>
+<td>44.3%</td>
+</tr>
+</tbody>
+</table>
+<p>For normal growth rates of a few percent, the error is a rounding issue. At 50% or 100%, it is large, just as the <span class="math inline">\((x-a)^2\)</span> term predicts. Adding the second-order term helps a lot at moderate values: at <span class="math inline">\(g = 0.1\)</span>, <span class="math inline">\(0.1 - 0.005 = 0.0950\)</span>, already very close to <span class="math inline">\(0.0953\)</span>.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Back to the question: we can rebuild a curve from a few derivatives because each term matches one more feature of the function at a point, and what we leave out shrinks like a power of the distance from that point. That is also why the approximation is local.</p>
+<p>For economics, this gives a practical rule. Using <span class="math inline">\(\ln(1+g) \approx g\)</span> is fine for typical GDP growth, interest rates, or monthly inflation in most countries, where <span class="math inline">\(g\)</span> is a few percent. For large changes, such as high inflation, asset prices that double, or comparing values decades apart, we should report the exact percentage change or keep the second-order term. The Taylor formula tells us not only how to approximate, but also how much we lose by doing it.</p>
 <hr>
 
 
