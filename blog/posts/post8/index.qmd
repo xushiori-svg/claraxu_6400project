@@ -1,0 +1,44 @@
+---
+title: "Can One Year of Data Prove the Stock Market Goes Up?"
+author: "Clara Xu"
+date: "2026-11-03"
+categories: [simulation, bootstrap, hypothesis testing, finance]
+resources:
+  - images/
+---
+
+Most people believe that the stock market goes up in the long run. Over the past ten years, the S&P 500 rose on an average day by about 0.06%, which adds up to roughly 15% a year. But on a single day, the index often moves up or down by 1% or more. When the daily ups and downs are about 20 times larger than the average, how much data do we need before we can say the average return is really above zero? In this post I use simulation to answer this question, and along the way I explain how confidence intervals and hypothesis tests work.
+
+I use daily closing values of the S&P 500 from FRED, from November 2016 to October 2026. This gives 2,510 daily returns. I treat these ten years as the "population," so the true average daily return is known: 0.058%. Then I pretend that I only see a small sample of days, and I check whether statistics can find the truth.
+
+The first tool is the bootstrap. Suppose I only see 250 random trading days, about one year. From this one sample I can compute one average, but I do not know how far it is from the truth. The bootstrap idea is simple: draw 250 days from my own sample with replacement, compute the average, and repeat this 5,000 times. The spread of these 5,000 averages shows how much the average could move if I had drawn a different sample. The middle 95% of them is a 95% confidence interval. Use the slider to change the sample size.
+
+<iframe src="images/fig1_bootstrap.html" width="100%" height="600" style="border:none;"></iframe>
+
+With 250 days, my sample average is −0.01%, and the 95% interval runs from −0.14% to 0.12%. The interval is wide and includes zero. With 60 days it is even wider. With 1,000 days it becomes much narrower, from −0.04% to 0.09%, but it still includes zero.
+
+What does "95% confidence" actually promise? It does not mean that this one interval contains the truth with 95% chance. It means that if we repeat the whole process many times, about 95% of the intervals will contain the true value. The next figure checks this. I draw 100 different samples, build a bootstrap interval from each one, and color the intervals that miss the true mean in red. The slider changes the sample size and the confidence level.
+
+<iframe src="images/fig2_ci_coverage.html" width="100%" height="650" style="border:none;"></iframe>
+
+With 1,000 days, the results match the promise well. The 95% intervals contain the true mean 98 times out of 100, and the 90% intervals 95 times. With only 60 days, the 95% intervals contain it only 91 times. The reason is that stock returns have a few very large up and down days. A small sample often misses them, so the bootstrap sees less risk than there really is, and the interval is too narrow. With 100 intervals, a difference of two or three is normal luck, but the gap at 60 days is larger than that.
+
+Now let me turn the question into a hypothesis test. The null hypothesis says the true average daily return is zero. Over the last year, the S&P 500 had an average daily return of 0.045%. Is this far enough from zero? To find out, I build a world where the null is true. I shift last year's returns so that their average is exactly zero, keep their ups and downs, and draw 10,000 bootstrap samples from them. The histogram shows the averages we could see just by luck if the true mean were zero.
+
+<iframe src="images/fig3_null_test.html" width="100%" height="600" style="border:none;"></iframe>
+
+The red bars are the rejection region. With α = 0.05, they are the 5% of simulated averages that are farthest from zero. If the real average lands there, we reject the null. Last year's average of 0.045% falls in the blue area. The p-value is the share of simulated averages at least as far from zero as the real one, and here it is 0.38. So in a world where the true mean is zero, a year as good as the last one would still happen 38% of the time. One year of data cannot reject the null. Moving the slider to α = 0.10 makes the red region wider, but the result does not change.
+
+The last figure repeats the test using more years of data.
+
+<iframe src="images/fig4_more_data.html" width="100%" height="600" style="border:none;"></iframe>
+
+As we add data, the null distribution becomes narrower, because averages over more days have less luck in them. The p-value falls from 0.38 with one year to 0.20 with two years and 0.13 with five years. Only with all ten years does it drop to 0.009, and the average finally lands in the red region.
+
+This exercise has some limits. The bootstrap treats each day as independent, but in real markets calm and volatile days tend to come in groups. Also, ten years is still one period of history, and it included a long bull market.
+
+The takeaway is simple. The stock market has a positive average return, but each day is so noisy that one or even five years of data are not enough to prove it. The same simulations show what a confidence interval and a p-value really mean: they tell us how much our answer could change if luck had given us different days. For an investor, a bad year is not proof that stocks stopped working, and a good year is not proof that they will keep rising.
+
+---
+
+*Data: S&P 500 daily closing values from FRED (series SP500), November 2016 to October 2026. Returns are simple daily percent changes. All simulations use a fixed random seed. Code and data are available on [GitHub](https://github.com/xushiori-svg/sp500-bootstrap).*
